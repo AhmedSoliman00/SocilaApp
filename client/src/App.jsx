@@ -14,14 +14,16 @@ import RightBar from "./components/rightBar/RightBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 function App() {
-  const currentUser = false;
+  const currentUser = true;
   const Layout = () => {
     return (
       <div>
         <NavBar />
         <div style={{ display: "flex" }}>
           <LeftBar />
-          <Outlet />
+          <div style={{ flex: 6 }}>
+            <Outlet />
+          </div>
           <RightBar />
         </div>
       </div>
@@ -33,7 +35,7 @@ function App() {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
-    return children; // you must be 
+    return children; // you must be
   };
 
   const router = createBrowserRouter([
